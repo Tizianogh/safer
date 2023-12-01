@@ -1,0 +1,47 @@
+.description {
+  max-width: 35%;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  height: 35%;
+  float: right;
+  padding :2%;
+  margin-right: 3%;
+}
+
+.chart-container {
+  width: 50%;
+  float: left;
+}
+
+.bar-chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.titre {
+  font-family: 'Londrina Outline';
+  font-size: 40px;
+  color: rgb(5, 5, 5);
+  font-weight: 400;
+  mix-blend-mode: color-burn;
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.titre {
+  animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

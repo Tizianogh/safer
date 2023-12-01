@@ -1,0 +1,100 @@
+.input-container {
+  position: absolute;
+  top: 70px; /* changez cette valeur */
+  left: 60px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  margin-top: 2%;
+  width: 300px;
+  padding: 20px;
+  box-shadow: 0 10px 15px rgb(0 0 0 / 20%);
+  backdrop-filter: blur(20px);
+  background-color: rgba(255,255,255,0.3);
+  background-blend-mode: overlay;
+  border-radius: 12px;
+}
+input, select {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: #00b7ff;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #00b7ff;
+  font-weight: 400;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #008fcc;
+}
+.leaflet-container {
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.route {
+  stroke-width: 4px;
+  stroke-color: #00b7ff;
+  stroke-opacity: 0.8;
+}
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1000;
+}
+
+.risk-score-display {
+  position: fixed;
+  bottom: 0; 
+  width: 100%; 
+  background-color: rgba(255,255,255,0.8); 
+  padding: 10px; 
+  box-sizing: border-box;
+  z-index: 2000; /* Ajoutez cette ligne */
+}
+
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(128, 128, 128, 0.5); /* couleur de fond semi-transparente */
+  z-index: 999; /* s'assurer qu'il s'affiche derrière l'indicateur de chargement */
+}
+
+.loading-indicator {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f1f1f1; /* couleur de fond de l'indicateur de chargement */
+  padding: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  z-index: 1000;
+}

@@ -1,0 +1,32 @@
+path {
+    stroke: #ffffff;
+  }
+  text {
+    font-family: sans-serif;
+    font-weight: bold;
+    fill: #ffffff;
+  }
+.titre{
+  font-family: 'Londrina Outline';
+  font-size: 40px;
+  color: rgb(5, 5, 5);
+  font-weight: 400;
+  mix-blend-mode: color-burn;
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 2%;
+}
+.titre {
+  animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

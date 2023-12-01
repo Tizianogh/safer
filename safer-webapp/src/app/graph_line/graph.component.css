@@ -1,0 +1,127 @@
+
+body {
+  background-color: rgb(255, 249, 249); /* Remplacez cette couleur par celle de votre choix */
+}
+/* Sélectionne le titre */
+.titre {
+  font-family: 'Londrina Outline', cursive;
+  font-size: 50px;
+  color: #050505;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 2%;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Sélectionne les labels */
+label {
+  font-family: 'Inconsolata', monospace;
+  font-size: 20px;
+  color: #333;
+  margin-top: 5%;
+}
+
+/* Style des axes */
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis-title {
+  font-size: 12px;
+  fill: none;
+  stroke: black;
+}
+.axis--x path{
+  margin-bottom: 2%;
+
+}
+.axis--y path{
+  margin-left: 2%
+}
+
+
+/* Style de la ligne du graphique */
+.line {
+  fill: none;
+  stroke: rgba(7, 68, 68, 0.8);
+  stroke-width: 3px;
+}
+
+/* Ajout d'une transition lors du survol de la ligne */
+.line:hover {
+  stroke-width: 5px;
+}
+
+/* Animation de fondu pour le titre */
+.titre {
+  animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+input[type="number"] {
+  font-family: 'Inconsolata', monospace;
+  font-size: 16px;
+  color: #333;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  animation: fade-in 1s ease-in-out;
+  width: 7%;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: rgba(31, 148, 148, 0.35);
+}
+
+/* Ajout d'une animation de fondu pour les inputs/choix de dates */
+input[type="number"] {
+  animation: fade-in 1s ease-in-out;
+}
+
+/* Animation pour le changement de valeur des inputs */
+input[type="number"]:focus,
+input[type="number"]:valid {
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(31, 148, 148, 0.35);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+svg {
+  float: left;
+  margin-left: 8%;
+  border: 1px solid #000;
+  padding: 10px;
+}
+
+label[for="startYear"],
+input#startYear,
+label[for="endYear"],
+input#endYear {
+  display: block;
+  float: right;
+  clear: right;
+  margin-top: 1%;
+  margin-right: 12%;
+}

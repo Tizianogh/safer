@@ -1,0 +1,44 @@
+<div *ngIf="!loading" class="input-container">
+  <input [(ngModel)]="fromAddress" placeholder="Adresse de départ" />
+  <input [(ngModel)]="toAddress" placeholder="Adresse d'arrivée" />
+
+  <select [(ngModel)]="sexe">
+    <option *ngFor="let option of sexeOptions" [value]="option">
+      {{ getSexeDisplayValue(option) }}
+    </option>
+  </select>
+
+  <input [(ngModel)]="age" type="number" placeholder="Âge" />
+
+  <select [(ngModel)]="trajet">
+    <option *ngFor="let option of trajetOptions" [value]="option">
+      {{ getTrajetDisplayValue(option) }}
+    </option>
+  </select>
+  <select [(ngModel)]="catv">
+    <option *ngFor="let option of catvOptions" [value]="option">
+      {{getCatvDisplayValue(option) }}
+    </option>
+  </select>
+
+
+  <button (click)="getRouteFromAddresses()">Trouver l'itinéraire</button>
+</div>
+
+<!-- Le reste de votre code... -->
+
+
+<div *ngIf="loading" class="loading-overlay"></div>
+<div *ngIf="loading" class="loading-indicator">
+  Chargement en cours...
+</div>
+<div *ngIf="hoveredDepartmentRisk" class="risk-score-display">
+  Risk Score: {{ hoveredDepartmentRisk }}
+  <br>
+  Global Prediction: {{ globalPrediction }} : ({{globalPredictionBrut}})
+</div>
+
+<!-- Votre code existant... -->
+
+<div leaflet [leafletOptions]="options" [leafletLayers]="layers"></div>
+

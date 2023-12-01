@@ -1,0 +1,6 @@
+flask==2.2.4
+flask-cors==3.0.10
+python-dotenv==1.0.0
+numpy
+scikit-learn
+pandas

@@ -1,0 +1,50 @@
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.des{
+  margin-left: 2%;
+  border: 1px solid #000;
+  padding: 1%;
+  width: 55%;
+  background-color: #f2f2f2;
+}
+.titre{
+  font-family: 'Londrina Outline';
+  font-size: 40px;
+  color: rgb(5, 5, 5);
+  font-weight: 400;
+  mix-blend-mode: color-burn;
+  text-align: center;
+  background-color: #f2f2f2;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.titre {
+  animation: fade-in 1s ease-in-out;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.arc path {
+  stroke: #fff;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: black; /* Changez la couleur en noir */
+  shape-rendering: crispEdges;
+}
+
+.axis text {
+  font: 10px sans-serif;
+  fill: black; /* Changez la couleur en noir */
+}

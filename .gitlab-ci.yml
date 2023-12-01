@@ -1,0 +1,31 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+variables:
+  DOCKER_HOST: tcp://docker:2375
+  DOCKER_DRIVER: overlay2
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - docker-compose build
+    - docker-compose up -d
+
+pages:
+  stage: deploy
+  script:
+    - docker-compose up -d web front
+    - docker-compose exec web sh -c "mkdir -p /var/www/html"
+    - docker-compose exec front sh -c "ng build --prod --output-path=/var/www/html"
+  artifacts:
+    paths:
+      - /var/www/html
+  only:
+    - main
+

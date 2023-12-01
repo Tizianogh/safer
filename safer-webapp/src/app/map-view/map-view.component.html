@@ -1,0 +1,116 @@
+<link href='https://fonts.googleapis.com/css?family=Londrina Outline' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet'>
+<div *ngIf="isLoading" class="overlay"></div>
+<div *ngIf="isLoading" class="loading-indicator">
+  Chargement en cours...
+</div>
+
+<div class="premierPlan">
+  <div
+    style="height: 100%;"
+    leaflet
+    [leafletOptions]="options"
+    [leafletLayers]="layers">
+  </div>
+</div>
+
+<div class="custom-popup-container" *ngIf="regionName" (click)="onContainerClick($event)">
+  <div class="bar">
+    <ul>
+      <li [ngClass]="{'active': selectedTab === 'general'}"><a (click)="selectedTab = 'general'"><em class="fa fa-tasks" style="padding: 20px"></em>Général</a></li>
+      <li [ngClass]="{'active': selectedTab === 'brightness'}"><a (click)="selectedTab = 'brightness'"><em class="fa fa-sun-o" style="padding: 20px"></em>Luminosité</a></li>
+      <li [ngClass]="{'active': selectedTab === 'meteo'}"><a (click)="selectedTab = 'meteo'"><em class="fa fa-cloud" style="padding: 20px"></em>Météo</a></li>
+      <li [ngClass]="{'active': selectedTab === 'sex'}"><a (click)="selectedTab = 'sex'"><em class="fa fa-venus-mars" style="padding: 20px"></em>Sexe</a></li>
+      <li [ngClass]="{'active': selectedTab === 'age'}"><a (click)="selectedTab = 'age'"><em class="fa fa-child" style="padding: 20px"></em>Âge</a></li>
+      <li [ngClass]="{'active': selectedTab === 'catv'}"><a (click)="selectedTab = 'catv'"><em class="fa fa-car" style="padding: 20px"></em>Catv</a></li>
+      <li [ngClass]="{'active': selectedTab === 'trajet'}"><a (click)="selectedTab = 'trajet'"><em class="fa fa-road" style="padding: 20px"></em>Trajet</a></li>
+      <li [ngClass]="{'grav': selectedTab === 'grav'}"><a (click)="selectedTab = 'grav'"><em class="fa fa-hospital-o" style="padding: 20px"></em>Gravité</a></li>
+
+    </ul>
+  </div>
+
+  <div class="custom-popup-content">
+    <button class="close-button" (click)="closePopup()">X</button>
+    <p class="tit">{{regionName}}</p>
+    <div class="desc">
+    <p>Code postal: {{regionCode}}</p>
+    <p>Total d'accidents: {{totalAccidents}}</p>
+    </div>
+
+    <app-graph-histo-dep
+      *ngIf="regionName && selectedTab === 'general'"
+      [departmentData]="departmentData"
+    ></app-graph-histo-dep>
+
+    <app-graph-cam-dep
+      *ngIf="regionName && selectedTab === 'brightness'"
+      [departmentData]="departmentData"
+      [departmentCode]="regionCode"
+      [tabType]="'brightness'"
+    ></app-graph-cam-dep>
+
+    <!-- Nouveau contenu -->
+    <app-graph-cam-dep
+      *ngIf="regionName && selectedTab === 'meteo'"
+      [departmentData]="departmentData"
+      [departmentCode]="regionCode"
+      [tabType]="'meteo'"
+    ></app-graph-cam-dep>
+
+    <app-graph-cam-dep
+      *ngIf="regionName && selectedTab === 'age'"
+      [departmentData]="departmentData"
+      [departmentCode]="regionCode"
+      [tabType]="'age'"
+    ></app-graph-cam-dep>
+
+    <app-graph-barchart-dep
+      *ngIf="regionName && selectedTab === 'sex'"
+      [departmentData]="departmentData"
+      [departmentCode]="regionCode"
+    ></app-graph-barchart-dep>
+
+    <app-graph-cam-dep
+    *ngIf="regionName && selectedTab === 'catv'"
+    [departmentData]="departmentData"
+    [departmentCode]="regionCode"
+    [tabType]="'catv'"
+  ></app-graph-cam-dep>
+
+
+  <app-graph-cam-dep
+  *ngIf="regionName && selectedTab === 'trajet'"
+  [departmentData]="departmentData"
+  [departmentCode]="regionCode"
+  [tabType]="'trajet'"
+></app-graph-cam-dep>
+
+<app-graph-cam-dep
+  *ngIf="regionName && selectedTab === 'grav'"
+  [departmentData]="departmentData"
+  [departmentCode]="regionCode"
+  [tabType]="'grav'"
+></app-graph-cam-dep>
+
+  </div>
+</div>
+
+<div *ngIf="!isLoading" class="legend">
+  <h3>Légende</h3>
+  <div class="legend-item">
+    <span class="legend-color color-green"></span>
+    <= 1000 accidents
+  </div>
+  <div class="legend-item">
+    <span class="legend-color color-yellow"></span>
+    1001 - 2500 accidents
+  </div>
+  <div class="legend-item">
+    <span class="legend-color color-orange"></span>
+    2501 - 5000 accidents
+  </div>
+  <div class="legend-item">
+    <span class="legend-color color-red"></span>
+    > 5000 accidents
+  </div>
+</div>

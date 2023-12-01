@@ -1,0 +1,53 @@
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px;
+  }
+input[type="number"] {
+  font-family: 'Inconsolata', monospace;
+  font-size: 16px;
+  color: #333;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s ease;
+  animation: fade-in 1s ease-in-out;
+  width: 10%;
+}
+
+input[type="number"]:focus {
+  outline: none;
+  border-color: rgba(31, 148, 148, 0.35);
+}
+
+/* Ajout d'une animation de fondu pour les inputs/choix de dates */
+input[type="number"] {
+  animation: fade-in 1s ease-in-out;
+}
+
+/* Animation pour le changement de valeur des inputs */
+input[type="number"]:focus,
+input[type="number"]:valid {
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: rgba(31, 148, 148, 0.35);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
+label[for="startYear"],
+input#startYear,
+label[for="endYear"],
+input#endYear {
+  display: block;
+  float: right;
+  clear: right;
+  margin-top: 1%;
+  margin-right: 12%;
+}
